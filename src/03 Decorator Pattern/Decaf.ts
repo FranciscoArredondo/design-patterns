@@ -5,8 +5,8 @@ export default class Decaf extends Beverage {
     super(description);
   }
 
-  cost(): string {
-    const price = (Math.random() * 10).toString().slice(0, 4);
+  cost(): number {
+    const price = parseFloat((Math.random() * 10).toString().slice(0, 4));
     console.log(`${(<any>this).constructor.name}'s price is $${price}`);
     return price;
   }
