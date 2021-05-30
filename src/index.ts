@@ -1,5 +1,6 @@
 import MallardDuck from "./01 Strategy Pattern/MallardDuck";
 import RedheadDuck from "./01 Strategy Pattern/RedheadDuck";
+import RubberDuck from "./01 Strategy Pattern/RubberDuck";
 
 console.log("/******* Strategy Pattern *******/");
 const md = new MallardDuck();
@@ -13,3 +14,9 @@ rd.quack();
 rd.swim();
 rd.fly();
 rd.display();
+
+const rubberDuck = new RubberDuck();
+rubberDuck.display();
+rubberDuck.fly();
+rubberDuck.quack();
+rubberDuck.swim();
