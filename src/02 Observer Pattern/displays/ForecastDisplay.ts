@@ -14,6 +14,10 @@ export default class ForecastDisplay implements Observer, DisplayElement {
     weatherData.registerObserver(this);
   }
 
+  unsubscribe(): void {
+    this.weatherData.removeObserver(this);
+  }
+
   display(): void {
     console.log(`Forecast Display...\n\
 Temperature: ${this.temperature}, Humidity: ${this.humidity}, Pressue: ${this.pressure}\n`);

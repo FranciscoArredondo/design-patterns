@@ -39,7 +39,7 @@ const statisticsDisplay = new StatisticsDisplay(wd);
 const forecastDisplay = new ForecastDisplay(wd);
 
 wd.measurmentsChanged();
-wd.removeObserver(currentConditionsDisplay);
+currentConditionsDisplay.unsubscribe();
 wd.measurmentsChanged();
-wd.removeObserver(statisticsDisplay);
+statisticsDisplay.unsubscribe();
 wd.measurmentsChanged();

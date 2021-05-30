@@ -15,6 +15,10 @@ export default class StatisticsDisplay implements Observer, DisplayElement {
     this.weatherData.registerObserver(this);
   }
 
+  unsubscribe(): void {
+    this.weatherData.removeObserver(this);
+  }
+
   display(): void {
     console.log(`Statistics Display...\n\
 Temperature: ${this.temperature}, Humidity: ${this.humidity}, Pressue: ${this.pressure}\n`);

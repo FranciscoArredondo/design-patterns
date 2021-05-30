@@ -16,6 +16,10 @@ export default class CurrentConditionsDisplay
     this.weatherData.registerObserver(this);
   }
 
+  unsubscribe(): void {
+    this.weatherData.removeObserver(this);
+  }
+
   display(): void {
     console.log(`Current Condtions Display...\n\
 Temperature: ${this.temperature}, Humidity: ${this.humidity}, Pressue: ${this.pressure}\n`);
