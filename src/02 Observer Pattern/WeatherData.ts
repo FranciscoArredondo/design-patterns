@@ -1,41 +1,55 @@
-import CurrentConditionsDisplay from "./displays/CurrentConditionsDisplay";
-import ForecastDisplay from "./displays/ForecastDisplay";
-import StatisticsDisplay from "./displays/StatisticsDisplay";
+import Observer from "./interfaces/Observer";
+import Subject from "./interfaces/Subject";
+import { WeatherDataType } from "./interfaces/Types";
 
-class WeatherData {
-  currentConditionsDisplay: CurrentConditionsDisplay;
-  statisticsDisplay: StatisticsDisplay;
-  forecastDisplay: ForecastDisplay;
+class WeatherData implements Subject {
+  observers: Observer[];
 
   constructor() {
-    this.currentConditionsDisplay = new CurrentConditionsDisplay();
-    this.statisticsDisplay = new StatisticsDisplay();
-    this.forecastDisplay = new ForecastDisplay();
+    this.observers = [];
   }
 
-  getTemperature(): string {
+  registerObserver(obs: Observer): void {
+    this.observers.push(obs);
+  }
+
+  removeObserver(obs: Observer): void {
+    this.observers = this.observers.filter((o) => obs !== o);
+  }
+
+  notifyObservers(): void {
+    this.observers.forEach((obs) => {
+      obs.update(this.getWeatherData());
+    });
+  }
+
+  private getTemperature(): string {
     const rand = Math.random() * 100;
     return `${rand.toString().slice(0, 5)} F`;
   }
 
-  getHumidity(): string {
+  private getHumidity(): string {
     const rand = Math.random() * 100;
     return `${rand.toString().slice(0, 5)} %`;
   }
 
-  getPressure(): string {
+  private getPressure(): string {
     const rand = Math.random() * 100;
     return `${rand.toString().slice(0, 5)} inHG`;
   }
 
-  public measurmentsChanged(): void {
+  private getWeatherData(): WeatherDataType {
     const temperature = this.getTemperature();
     const pressure = this.getPressure();
     const humidity = this.getHumidity();
 
-    this.currentConditionsDisplay.update(temperature, humidity, pressure);
-    this.statisticsDisplay.update(temperature, humidity, pressure);
-    this.forecastDisplay.update(temperature, humidity, pressure);
+    return { temperature, pressure, humidity };
+  }
+
+  public measurmentsChanged(): void {
+    console.log("~~~~~~~New Mesurement~~~~~~~");
+
+    this.notifyObservers();
   }
 }
 
