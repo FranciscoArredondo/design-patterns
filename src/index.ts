@@ -2,6 +2,7 @@ import DecoyDuck from "./01 Strategy Pattern/DecoyDuck";
 import MallardDuck from "./01 Strategy Pattern/MallardDuck";
 import RedheadDuck from "./01 Strategy Pattern/RedheadDuck";
 import RubberDuck from "./01 Strategy Pattern/RubberDuck";
+import WeatherData from "./02 Observer Pattern/WeatherData";
 
 console.log("/******* Strategy Pattern *******/");
 const md = new MallardDuck();
@@ -27,3 +28,9 @@ dd.display();
 dd.performQuack();
 dd.swim();
 dd.performFly();
+
+console.log("\n/******* Observer Pattern *******/");
+const wd = new WeatherData();
+console.log(wd.getTemperature());
+console.log(wd.getHumidity());
+console.log(wd.getPressure());
