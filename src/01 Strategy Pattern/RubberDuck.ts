@@ -1,14 +1,12 @@
+import FlyNoWay from "./behaviors/FlyNoWay";
+import Squeak from "./behaviors/Squeak";
 import Duck from "./Duck";
-import IQuackable from "./interfaces/IQuackable";
+import IFlyBehavior from "./interfaces/IFlyBehavior";
+import IQuackBehavior from "./interfaces/IQuackBehavior";
 
-class RubberDuck extends Duck implements IQuackable {
+class RubberDuck extends Duck {
   constructor() {
-    super();
-  }
-
-  // Overriding the quack method to squeak since its a rubber duck.
-  quack() {
-    console.log(`squeeeeeeeeak! 🔉`);
+    super(new FlyNoWay(), new Squeak());
   }
 
   display(): void {

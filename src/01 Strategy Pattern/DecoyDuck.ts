@@ -1,8 +1,10 @@
+import FlyNoWay from "./behaviors/FlyNoWay";
+import MuteQuack from "./behaviors/MuteQuack";
 import Duck from "./Duck";
 
 class DecoyDuck extends Duck {
   constructor() {
-    super();
+    super(new FlyNoWay(), new MuteQuack());
   }
 
   display(): void {

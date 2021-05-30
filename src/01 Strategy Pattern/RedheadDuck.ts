@@ -1,18 +1,10 @@
+import FlyWithWings from "./behaviors/FlyWithWings";
+import Quack from "./behaviors/Quack";
 import Duck from "./Duck";
-import IFlyable from "./interfaces/IFlyable";
-import IQuackable from "./interfaces/IQuackable";
 
-class RedheadDuck extends Duck implements IFlyable, IQuackable {
+class RedheadDuck extends Duck {
   constructor() {
-    super();
-  }
-
-  quack(): void {
-    console.log("Quackkk! 📣");
-  }
-
-  fly(): void {
-    console.log("Flying! ✈️");
+    super(new FlyWithWings(), new Quack());
   }
 
   display(): void {
