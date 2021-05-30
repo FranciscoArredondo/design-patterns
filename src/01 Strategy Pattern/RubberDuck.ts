@@ -1,18 +1,14 @@
 import Duck from "./Duck";
+import IQuackable from "./interfaces/IQuackable";
 
-class RubberDuck extends Duck {
+class RubberDuck extends Duck implements IQuackable {
   constructor() {
     super();
   }
 
   // Overriding the quack method to squeak since its a rubber duck.
   quack() {
-    console.log(`squeeeeeeeeak!`);
-  }
-
-  // oops... rubber ducks aren't supposed to fly.
-  fly() {
-    // do nothing.
+    console.log(`squeeeeeeeeak! 🔉`);
   }
 
   display(): void {

@@ -18,12 +18,9 @@ rd.display();
 
 const rubberDuck = new RubberDuck();
 rubberDuck.display();
-rubberDuck.fly();
 rubberDuck.quack();
 rubberDuck.swim();
 
 const dd = new DecoyDuck();
 dd.display();
-dd.fly();
-dd.quack();
 dd.swim();

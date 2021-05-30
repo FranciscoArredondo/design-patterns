@@ -5,16 +5,6 @@ class DecoyDuck extends Duck {
     super();
   }
 
-  // Decoy ducks can't fly
-  fly() {
-    // do nothing
-  }
-
-  // Decoy ducks can't quack either 😓
-  quack() {
-    // do nothing
-  }
-
   display(): void {
     console.log("Displaying as a wooden duck.");
   }

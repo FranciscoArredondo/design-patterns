@@ -1,7 +1,18 @@
 import Duck from "./Duck";
-class MallardDuck extends Duck {
+import IFlyable from "./interfaces/IFlyable";
+import IQuackable from "./interfaces/IQuackable";
+
+class MallardDuck extends Duck implements IFlyable, IQuackable {
   constructor() {
     super();
+  }
+
+  quack(): void {
+    console.log("Quackkk! 📣");
+  }
+
+  fly(): void {
+    console.log("Flying! ✈️");
   }
 
   display(): void {

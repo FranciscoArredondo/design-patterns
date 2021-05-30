@@ -6,17 +6,8 @@ abstract class Duck {
     console.log(`-------------------------------------------`);
   }
 
-  public quack(): void {
-    console.log(`Quacking!`);
-  }
-
   public swim(): void {
-    console.log(`Swimming!`);
-  }
-
-  // All ducks must now be able to fly
-  public fly(): void {
-    console.log(`Flying thru the air! 🦆💨`);
+    console.log(`Swimming! 🌊`);
   }
 
   abstract display(): void;
