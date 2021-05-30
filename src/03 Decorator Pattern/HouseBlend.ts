@@ -1,13 +1,17 @@
 import Beverage from "./Beverage";
 
 export default class HouseBlend extends Beverage {
-  constructor(description: string) {
-    super(description);
+  private readonly price = 0.89;
+
+  constructor() {
+    super();
+  }
+
+  getDescription() {
+    return "House Blend";
   }
 
   cost(): number {
-    const price = super.cost();
-    console.log(`${(<any>this).constructor.name}'s price is $${price}`);
-    return price;
+    return this.price + super.cost();
   }
 }

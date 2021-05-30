@@ -1,13 +1,17 @@
 import Beverage from "./Beverage";
 
 export default class Espresso extends Beverage {
-  constructor(description: string) {
-    super(description);
+  private readonly price = 1.99;
+
+  constructor() {
+    super();
+  }
+
+  getDescription(): string {
+    return "Espresso";
   }
 
   cost(): number {
-    const price = super.cost();
-    console.log(`${(<any>this).constructor.name}'s price is $${price}`);
-    return price;
+    return this.price + super.cost();
   }
 }

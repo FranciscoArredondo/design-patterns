@@ -8,6 +8,10 @@ import StatisticsDisplay from "./02 Observer Pattern/displays/StatisticsDisplay"
 import WeatherData from "./02 Observer Pattern/WeatherData";
 import DarkRoast from "./03 Decorator Pattern/DarkRoast";
 import Decaf from "./03 Decorator Pattern/Decaf";
+import Milk from "./03 Decorator Pattern/decorators/Milk";
+import Mocha from "./03 Decorator Pattern/decorators/Mocha";
+import Soy from "./03 Decorator Pattern/decorators/Soy";
+import Whip from "./03 Decorator Pattern/decorators/Whip";
 import Espresso from "./03 Decorator Pattern/Espresso";
 import HouseBlend from "./03 Decorator Pattern/HouseBlend";
 
@@ -49,20 +53,22 @@ statisticsDisplay.unsubscribe();
 wd.measurmentsChanged();
 
 console.log("\n/******* Decorator Pattern *******/");
-const hb = new HouseBlend("HouseBlend");
-hb.setMilk();
-hb.cost();
+const houseBlend = new HouseBlend();
+const espresso = new Espresso();
+const decaf = new Decaf();
+const darkRoast = new DarkRoast();
 
-const decaf = new Decaf("Decaf");
-decaf.setSoy();
-decaf.setWhip();
-decaf.cost();
+// a house blend coffee with milk, mocha, soy, and whip. The works!
+const houseBlendDrink = new Whip(new Soy(new Mocha(new Milk(houseBlend))));
+houseBlendDrink.log();
 
-const espresso = new Espresso("Espresso");
-espresso.setMilk();
-espresso.setMocha();
-espresso.setWhip();
-espresso.cost();
+// an espresso with mocha
+const espressoDrink = new Mocha(espresso);
+espressoDrink.log();
 
-const dr = new DarkRoast("Dark Roast");
-dr.cost();
+// a decaf coffee with whip and soy
+const decafDrink = new Soy(new Whip(decaf));
+decafDrink.log();
+
+// a plain dark roast coffee
+darkRoast.log();
