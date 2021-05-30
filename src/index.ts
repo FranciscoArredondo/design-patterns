@@ -6,6 +6,10 @@ import CurrentConditionsDisplay from "./02 Observer Pattern/displays/CurrentCond
 import ForecastDisplay from "./02 Observer Pattern/displays/ForecastDisplay";
 import StatisticsDisplay from "./02 Observer Pattern/displays/StatisticsDisplay";
 import WeatherData from "./02 Observer Pattern/WeatherData";
+import DarkRoast from "./03 Decorator Pattern/DarkRoast";
+import Decaf from "./03 Decorator Pattern/Decaf";
+import Espresso from "./03 Decorator Pattern/Espresso";
+import HouseBlend from "./03 Decorator Pattern/HouseBlend";
 
 console.log("/******* Strategy Pattern *******/");
 const md = new MallardDuck();
@@ -43,3 +47,16 @@ currentConditionsDisplay.unsubscribe();
 wd.measurmentsChanged();
 statisticsDisplay.unsubscribe();
 wd.measurmentsChanged();
+
+console.log("\n/******* Decorator Pattern *******/");
+const hb = new HouseBlend("HouseBlend");
+hb.cost();
+
+const decaf = new Decaf("Decaf");
+decaf.cost();
+
+const espresso = new Espresso("Espresso");
+espresso.cost();
+
+const dr = new DarkRoast("Dark Roast");
+dr.cost();
