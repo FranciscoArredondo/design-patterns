@@ -14,6 +14,11 @@ abstract class Duck {
     console.log(`Swimming!`);
   }
 
+  // All ducks must now be able to fly
+  public fly(): void {
+    console.log(`Flying thru the air! 🦆💨`);
+  }
+
   abstract display(): void;
 }
 
