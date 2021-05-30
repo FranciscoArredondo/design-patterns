@@ -50,12 +50,18 @@ wd.measurmentsChanged();
 
 console.log("\n/******* Decorator Pattern *******/");
 const hb = new HouseBlend("HouseBlend");
+hb.setMilk();
 hb.cost();
 
 const decaf = new Decaf("Decaf");
+decaf.setSoy();
+decaf.setWhip();
 decaf.cost();
 
 const espresso = new Espresso("Espresso");
+espresso.setMilk();
+espresso.setMocha();
+espresso.setWhip();
 espresso.cost();
 
 const dr = new DarkRoast("Dark Roast");
