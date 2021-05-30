@@ -31,6 +31,7 @@ dd.performFly();
 
 console.log("\n/******* Observer Pattern *******/");
 const wd = new WeatherData();
-console.log(wd.getTemperature());
-console.log(wd.getHumidity());
-console.log(wd.getPressure());
+wd.measurmentsChanged();
+// console.log(wd.getTemperature());
+// console.log(wd.getHumidity());
+// console.log(wd.getPressure());
