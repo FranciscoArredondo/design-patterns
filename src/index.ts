@@ -2,6 +2,9 @@ import DecoyDuck from "./01 Strategy Pattern/DecoyDuck";
 import MallardDuck from "./01 Strategy Pattern/MallardDuck";
 import RedheadDuck from "./01 Strategy Pattern/RedheadDuck";
 import RubberDuck from "./01 Strategy Pattern/RubberDuck";
+import CurrentConditionsDisplay from "./02 Observer Pattern/displays/CurrentConditionsDisplay";
+import ForecastDisplay from "./02 Observer Pattern/displays/ForecastDisplay";
+import StatisticsDisplay from "./02 Observer Pattern/displays/StatisticsDisplay";
 import WeatherData from "./02 Observer Pattern/WeatherData";
 
 console.log("/******* Strategy Pattern *******/");
@@ -31,7 +34,10 @@ dd.performFly();
 
 console.log("\n/******* Observer Pattern *******/");
 const wd = new WeatherData();
+const currentConditionsDisplay = new CurrentConditionsDisplay(wd);
+const statisticsDisplay = new StatisticsDisplay(wd);
+const forecastDisplay = new ForecastDisplay(wd);
+
 wd.measurmentsChanged();
-// console.log(wd.getTemperature());
-// console.log(wd.getHumidity());
-// console.log(wd.getPressure());
+wd.measurmentsChanged();
+wd.measurmentsChanged();
