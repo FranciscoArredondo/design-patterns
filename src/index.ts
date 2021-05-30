@@ -1,3 +1,4 @@
+import DecoyDuck from "./01 Strategy Pattern/DecoyDuck";
 import MallardDuck from "./01 Strategy Pattern/MallardDuck";
 import RedheadDuck from "./01 Strategy Pattern/RedheadDuck";
 import RubberDuck from "./01 Strategy Pattern/RubberDuck";
@@ -20,3 +21,9 @@ rubberDuck.display();
 rubberDuck.fly();
 rubberDuck.quack();
 rubberDuck.swim();
+
+const dd = new DecoyDuck();
+dd.display();
+dd.fly();
+dd.quack();
+dd.swim();
