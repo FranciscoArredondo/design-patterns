@@ -10,6 +10,11 @@ class RubberDuck extends Duck {
     console.log(`squeeeeeeeeak!`);
   }
 
+  // oops... rubber ducks aren't supposed to fly.
+  fly() {
+    // do nothing.
+  }
+
   display(): void {
     console.log(`Displaying as a rubber ducky!`);
   }
