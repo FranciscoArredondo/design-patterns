@@ -15,6 +15,9 @@ import Whip from "./03 Decorator Pattern/decorators/Whip";
 import { Sizes } from "./03 Decorator Pattern/Enums";
 import Espresso from "./03 Decorator Pattern/Espresso";
 import HouseBlend from "./03 Decorator Pattern/HouseBlend";
+import CheesePizza from "./04 Factory Pattern/CheesePizza";
+import Pizza from "./04 Factory Pattern/Pizza";
+import Store from "./04 Factory Pattern/Store";
 
 console.log("/******* Strategy Pattern *******/");
 const md = new MallardDuck();
@@ -79,3 +82,8 @@ decafDrink.log();
 
 // a plain dark roast coffee
 darkRoast.log();
+
+console.log("\n/******* Factory Pattern *******/");
+const pizzaStore = new Store("Frank's Pizza");
+pizzaStore.orderPizza("Cheese");
+pizzaStore.orderPizza("Dealer's Choice");
