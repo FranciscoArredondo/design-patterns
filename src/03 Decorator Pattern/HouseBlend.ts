@@ -1,7 +1,10 @@
 import Beverage from "./Beverage";
+import { Sizes } from "./Enums";
 
 export default class HouseBlend extends Beverage {
-  private readonly price = 0.89;
+  private readonly smallPrice: number = 0.89;
+  private readonly mediumPrice: number = this.smallPrice * 1.25;
+  private readonly largePrice: number = this.mediumPrice * 1.25;
 
   constructor() {
     super();
@@ -12,6 +15,21 @@ export default class HouseBlend extends Beverage {
   }
 
   cost(): number {
-    return this.price + super.cost();
+    let currentPrice;
+    switch (this.getSize()) {
+      case Sizes.Small:
+        currentPrice = this.smallPrice;
+        break;
+      case Sizes.Medium:
+        currentPrice = this.mediumPrice;
+        break;
+      case Sizes.Large:
+        currentPrice = this.largePrice;
+        break;
+      default:
+        currentPrice = this.smallPrice;
+        break;
+    }
+    return currentPrice;
   }
 }

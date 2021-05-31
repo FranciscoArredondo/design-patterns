@@ -12,6 +12,7 @@ import Milk from "./03 Decorator Pattern/decorators/Milk";
 import Mocha from "./03 Decorator Pattern/decorators/Mocha";
 import Soy from "./03 Decorator Pattern/decorators/Soy";
 import Whip from "./03 Decorator Pattern/decorators/Whip";
+import { Sizes } from "./03 Decorator Pattern/Enums";
 import Espresso from "./03 Decorator Pattern/Espresso";
 import HouseBlend from "./03 Decorator Pattern/HouseBlend";
 
@@ -54,8 +55,14 @@ wd.measurmentsChanged();
 
 console.log("\n/******* Decorator Pattern *******/");
 const houseBlend = new HouseBlend();
+houseBlend.setSize(Sizes.Small);
+
 const espresso = new Espresso();
+espresso.setSize(Sizes.Medium);
+
 const decaf = new Decaf();
+decaf.setSize(Sizes.Large);
+
 const darkRoast = new DarkRoast();
 
 // a house blend coffee with milk, mocha, soy, and whip. The works!

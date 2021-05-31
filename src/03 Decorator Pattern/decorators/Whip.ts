@@ -1,8 +1,11 @@
 import Beverage from "../Beverage";
+import { Sizes } from "../Enums";
 import CondimentDecorator from "./CondimentDecorator";
 
 export default class Whip extends CondimentDecorator {
-  private readonly price: number = 0.1;
+  private readonly smallPrice: number = 0.1;
+  private readonly mediumPrice: number = this.smallPrice * 2;
+  private readonly largePrice: number = this.mediumPrice * 2;
 
   constructor(beverage: Beverage) {
     super(beverage);
@@ -13,6 +16,21 @@ export default class Whip extends CondimentDecorator {
   }
 
   cost(): number {
-    return this.price + this.beverage.cost();
+    let currentPrice;
+    switch (this.beverage.getSize()) {
+      case Sizes.Small:
+        currentPrice = this.smallPrice;
+        break;
+      case Sizes.Medium:
+        currentPrice = this.mediumPrice;
+        break;
+      case Sizes.Large:
+        currentPrice = this.largePrice;
+        break;
+      default:
+        currentPrice = this.smallPrice;
+        break;
+    }
+    return currentPrice + this.beverage.cost();
   }
 }

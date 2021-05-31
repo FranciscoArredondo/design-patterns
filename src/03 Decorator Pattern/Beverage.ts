@@ -1,14 +1,24 @@
+import { Sizes } from "./Enums";
+
 export default abstract class Beverage {
-  private description: string = "Beverage";
-  private readonly basePrice = 0.99;
+  protected size: Sizes = Sizes.Small;
 
   abstract getDescription(): string;
+  abstract cost(): number;
 
-  cost(): number {
-    return this.basePrice;
+  setSize(size: Sizes): void {
+    this.size = size;
+  }
+
+  getSize(): Sizes {
+    return this.size;
   }
 
   log(): void {
-    console.log(`${this.getDescription()} will cost $${this.cost()}`);
+    console.log(
+      `${
+        Sizes[this.getSize()]
+      } ${this.getDescription()} will cost $${this.cost()}`
+    );
   }
 }
