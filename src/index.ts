@@ -18,6 +18,7 @@ import HouseBlend from "./03 Decorator Pattern/HouseBlend";
 import CheesePizza from "./04 Factory Pattern/CheesePizza";
 import Pizza from "./04 Factory Pattern/Pizza";
 import Store from "./04 Factory Pattern/Store";
+import { PizzaTypes } from "./04 Factory Pattern/Types";
 
 console.log("/******* Strategy Pattern *******/");
 const md = new MallardDuck();
@@ -85,5 +86,7 @@ darkRoast.log();
 
 console.log("\n/******* Factory Pattern *******/");
 const pizzaStore = new Store("Frank's Pizza");
-pizzaStore.orderPizza("Cheese");
-pizzaStore.orderPizza("Dealer's Choice");
+pizzaStore.orderPizza(PizzaTypes.Cheese);
+pizzaStore.orderPizza(PizzaTypes.Pepperoni);
+pizzaStore.orderPizza(PizzaTypes.Greek);
+pizzaStore.orderPizza(PizzaTypes.Plain);

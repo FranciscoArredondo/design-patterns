@@ -1,6 +1,9 @@
 import CheesePizza from "./CheesePizza";
+import GreekPizza from "./GreekPizza";
+import PepperoniPizza from "./PepperoniPizza";
 import Pizza from "./Pizza";
 import PlainPizza from "./PlainPizza";
+import { PizzaTypes } from "./Types";
 
 export default class Store {
   private readonly name: string;
@@ -9,12 +12,24 @@ export default class Store {
     this.name = name;
   }
 
-  orderPizza(type: string): Pizza {
+  orderPizza(type: PizzaTypes): Pizza {
     let pizza: Pizza;
 
     //decide what concrete type of pizza instance we need
-    if (type === "Cheese") pizza = new CheesePizza();
-    else pizza = new PlainPizza();
+    switch (type) {
+      case PizzaTypes.Cheese:
+        pizza = new CheesePizza();
+        break;
+      case PizzaTypes.Pepperoni:
+        pizza = new PepperoniPizza();
+        break;
+      case PizzaTypes.Greek:
+        pizza = new GreekPizza();
+        break;
+      default:
+        pizza = new PlainPizza();
+        break;
+    }
 
     // prepare, bake, cut, and box
     pizza.prepare();
