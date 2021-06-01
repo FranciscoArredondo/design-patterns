@@ -15,8 +15,8 @@ import Whip from "./03 Decorator Pattern/decorators/Whip";
 import { Sizes } from "./03 Decorator Pattern/Enums";
 import Espresso from "./03 Decorator Pattern/Espresso";
 import HouseBlend from "./03 Decorator Pattern/HouseBlend";
-import CheesePizza from "./04 Factory Pattern/CheesePizza";
-import Pizza from "./04 Factory Pattern/Pizza";
+import CheesePizza from "./04 Factory Pattern/Pizzas/CheesePizza";
+import Pizza from "./04 Factory Pattern/Pizzas/Pizza";
 import Store from "./04 Factory Pattern/Store";
 import { PizzaTypes } from "./04 Factory Pattern/Types";
 
@@ -90,3 +90,5 @@ pizzaStore.orderPizza(PizzaTypes.Cheese);
 pizzaStore.orderPizza(PizzaTypes.Pepperoni);
 pizzaStore.orderPizza(PizzaTypes.Greek);
 pizzaStore.orderPizza(PizzaTypes.Plain);
+pizzaStore.orderPizza(PizzaTypes.Veggie);
+pizzaStore.orderPizza(PizzaTypes.Clam);

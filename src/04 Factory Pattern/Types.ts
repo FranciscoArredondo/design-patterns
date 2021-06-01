@@ -3,4 +3,6 @@ export enum PizzaTypes {
   "Pepperoni",
   "Greek",
   "Plain",
+  "Clam",
+  "Veggie",
 }

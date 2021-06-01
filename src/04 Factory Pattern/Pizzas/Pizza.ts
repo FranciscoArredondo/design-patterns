@@ -1,4 +1,4 @@
-import { PizzaTypes } from "./Types";
+import { PizzaTypes } from "../Types";
 
 export default abstract class Pizza {
   protected abstract type: PizzaTypes;
