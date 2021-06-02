@@ -19,8 +19,11 @@ import CaliforniaPizzaFactory from "./04 Factory Pattern/Factories/CaliforniaPiz
 import ChicagoPizzaFactory from "./04 Factory Pattern/Factories/ChicagoPizzaFactory";
 import NYPizzaFactory from "./04 Factory Pattern/Factories/NYPizzaFactory";
 import SimplePizzaFactory from "./04 Factory Pattern/Factories/SimplePizzaFactory";
-import Store from "./04 Factory Pattern/Store";
+import Store from "./04 Factory Pattern/Stores/Store";
+import ChicagoStore from "./04 Factory Pattern/Stores/ChicagoStore";
 import { PizzaTypes } from "./04 Factory Pattern/Types";
+import NYStore from "./04 Factory Pattern/Stores/NYStore";
+import CaliforniaStore from "./04 Factory Pattern/Stores/CaliforniaStore";
 
 console.log("/******* Strategy Pattern *******/");
 const md = new MallardDuck();
@@ -87,23 +90,13 @@ decafDrink.log();
 darkRoast.log();
 
 console.log("\n/******* Factory Pattern *******/");
-const pizzaFactory = new SimplePizzaFactory();
-const pizzaStore = new Store(pizzaFactory);
-pizzaStore.orderPizza(PizzaTypes.Cheese);
-pizzaStore.orderPizza(PizzaTypes.Pepperoni);
-pizzaStore.orderPizza(PizzaTypes.Greek);
-pizzaStore.orderPizza(PizzaTypes.Plain);
-pizzaStore.orderPizza(PizzaTypes.Veggie);
-pizzaStore.orderPizza(PizzaTypes.Clam);
+const chitown = new ChicagoStore();
+chitown.orderPizza(PizzaTypes.Pepperoni);
 
-const nyPizzaFatory = new NYPizzaFactory();
-const nyPizzaStore = new Store(nyPizzaFatory);
-nyPizzaStore.orderPizza(PizzaTypes.Pepperoni);
+const newYork = new NYStore();
+newYork.orderPizza(PizzaTypes.Cheese);
+newYork.orderPizza(PizzaTypes.Pepperoni);
 
-const chitownPizzaFactory = new ChicagoPizzaFactory();
-const chitownPizzaStore = new Store(chitownPizzaFactory);
-chitownPizzaStore.orderPizza(PizzaTypes.Veggie);
-
-const caliPizzaFactory = new CaliforniaPizzaFactory();
-const caliPizzaStore = new Store(caliPizzaFactory);
-caliPizzaStore.orderPizza(PizzaTypes.Greek);
+const cali = new CaliforniaStore();
+cali.orderPizza(PizzaTypes.Clam);
+cali.orderPizza(PizzaTypes.Veggie);

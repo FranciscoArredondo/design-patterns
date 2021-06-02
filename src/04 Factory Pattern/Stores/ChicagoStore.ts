@@ -5,11 +5,13 @@ import PepperoniPizza from "../Pizzas/PepperoniPizza";
 import Pizza from "../Pizzas/Pizza";
 import PlainPizza from "../Pizzas/PlainPizza";
 import VeggiePizza from "../Pizzas/VeggiePizza";
+import Store from "./Store";
 import { PizzaStyles, PizzaTypes } from "../Types";
 
-export default class NYPizzaFactory {
-  private readonly style = PizzaStyles["New York"];
-  createPizza(type: PizzaTypes): Pizza {
+export default class ChicagoStore extends Store {
+  private readonly style: PizzaStyles = PizzaStyles.Chicago;
+
+  protected createPizza(type: PizzaTypes): Pizza {
     switch (type) {
       case PizzaTypes.Cheese:
         return new CheesePizza(this.style);
@@ -29,7 +31,8 @@ export default class NYPizzaFactory {
             PizzaTypes[type]
           } pizza is yet, how about a ${PizzaTypes[PizzaTypes.Plain]}`
         );
-        return new PlainPizza(this.style);
     }
+
+    return new PlainPizza(this.style);
   }
 }
