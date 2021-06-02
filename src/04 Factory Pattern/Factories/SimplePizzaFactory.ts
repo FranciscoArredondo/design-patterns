@@ -1,15 +1,14 @@
-import CheesePizza from "./Pizzas/CheesePizza";
-import ClamPizza from "./Pizzas/ClamPizza";
-import GreekPizza from "./Pizzas/GreekPizza";
-import PepperoniPizza from "./Pizzas/PepperoniPizza";
-import Pizza from "./Pizzas/Pizza";
-import PlainPizza from "./Pizzas/PlainPizza";
-import VeggiePizza from "./Pizzas/VeggiePizza";
-import { PizzaTypes } from "./Types";
+import CheesePizza from "../Pizzas/CheesePizza";
+import ClamPizza from "../Pizzas/ClamPizza";
+import GreekPizza from "../Pizzas/GreekPizza";
+import PepperoniPizza from "../Pizzas/PepperoniPizza";
+import Pizza from "../Pizzas/Pizza";
+import PlainPizza from "../Pizzas/PlainPizza";
+import VeggiePizza from "../Pizzas/VeggiePizza";
+import { PizzaTypes } from "../Types";
 
 export default class SimplePizzaFactory {
   createPizza(type: PizzaTypes): Pizza {
-    //decide what concrete type of pizza instance we need
     switch (type) {
       case PizzaTypes.Cheese:
         return new CheesePizza();

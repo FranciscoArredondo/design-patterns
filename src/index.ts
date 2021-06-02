@@ -15,7 +15,10 @@ import Whip from "./03 Decorator Pattern/decorators/Whip";
 import { Sizes } from "./03 Decorator Pattern/Enums";
 import Espresso from "./03 Decorator Pattern/Espresso";
 import HouseBlend from "./03 Decorator Pattern/HouseBlend";
-import SimplePizzaFactory from "./04 Factory Pattern/SimplePizzaFactory";
+import CaliforniaPizzaFactory from "./04 Factory Pattern/Factories/CaliforniaPizzaFactory";
+import ChicagoPizzaFactory from "./04 Factory Pattern/Factories/ChicagoPizzaFactory";
+import NYPizzaFactory from "./04 Factory Pattern/Factories/NYPizzaFactory";
+import SimplePizzaFactory from "./04 Factory Pattern/Factories/SimplePizzaFactory";
 import Store from "./04 Factory Pattern/Store";
 import { PizzaTypes } from "./04 Factory Pattern/Types";
 
@@ -92,3 +95,15 @@ pizzaStore.orderPizza(PizzaTypes.Greek);
 pizzaStore.orderPizza(PizzaTypes.Plain);
 pizzaStore.orderPizza(PizzaTypes.Veggie);
 pizzaStore.orderPizza(PizzaTypes.Clam);
+
+const nyPizzaFatory = new NYPizzaFactory();
+const nyPizzaStore = new Store(nyPizzaFatory);
+nyPizzaStore.orderPizza(PizzaTypes.Pepperoni);
+
+const chitownPizzaFactory = new ChicagoPizzaFactory();
+const chitownPizzaStore = new Store(chitownPizzaFactory);
+chitownPizzaStore.orderPizza(PizzaTypes.Veggie);
+
+const caliPizzaFactory = new CaliforniaPizzaFactory();
+const caliPizzaStore = new Store(caliPizzaFactory);
+caliPizzaStore.orderPizza(PizzaTypes.Greek);

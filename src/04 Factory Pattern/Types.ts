@@ -6,3 +6,9 @@ export enum PizzaTypes {
   "Clam",
   "Veggie",
 }
+
+export enum PizzaStyles {
+  "New York",
+  "Chicago",
+  "California",
+}

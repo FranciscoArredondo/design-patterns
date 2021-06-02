@@ -1,4 +1,4 @@
-import SimplePizzaFactory from "./SimplePizzaFactory";
+import SimplePizzaFactory from "./Factories/SimplePizzaFactory";
 import Pizza from "./Pizzas/Pizza";
 import { PizzaTypes } from "./Types";
 

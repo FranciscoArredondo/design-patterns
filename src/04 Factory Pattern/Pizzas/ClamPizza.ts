@@ -1,11 +1,11 @@
 import Pizza from "./Pizza";
-import { PizzaTypes } from "../Types";
+import { PizzaStyles, PizzaTypes } from "../Types";
 
 export default class ClamPizza extends Pizza {
   protected type: PizzaTypes;
 
-  constructor() {
-    super();
+  constructor(style?: PizzaStyles) {
+    super(style);
     this.type = PizzaTypes.Clam;
   }
 }
