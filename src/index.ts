@@ -15,15 +15,10 @@ import Whip from "./03 Decorator Pattern/decorators/Whip";
 import { Sizes } from "./03 Decorator Pattern/Enums";
 import Espresso from "./03 Decorator Pattern/Espresso";
 import HouseBlend from "./03 Decorator Pattern/HouseBlend";
-import CaliforniaPizzaFactory from "./04 Factory Pattern/Factories/CaliforniaPizzaFactory";
-import ChicagoPizzaFactory from "./04 Factory Pattern/Factories/ChicagoPizzaFactory";
-import NYPizzaFactory from "./04 Factory Pattern/Factories/NYPizzaFactory";
-import SimplePizzaFactory from "./04 Factory Pattern/Factories/SimplePizzaFactory";
-import Store from "./04 Factory Pattern/Stores/Store";
-import ChicagoStore from "./04 Factory Pattern/Stores/ChicagoStore";
-import { PizzaTypes } from "./04 Factory Pattern/Types";
-import NYStore from "./04 Factory Pattern/Stores/NYStore";
 import CaliforniaStore from "./04 Factory Pattern/Stores/CaliforniaStore";
+import ChicagoStore from "./04 Factory Pattern/Stores/ChicagoStore";
+import NYStore from "./04 Factory Pattern/Stores/NYStore";
+import { PizzaTypes } from "./04 Factory Pattern/Types";
 
 console.log("/******* Strategy Pattern *******/");
 const md = new MallardDuck();

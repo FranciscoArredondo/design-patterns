@@ -1,3 +1,5 @@
+import IngredientFactory from "../Ingredients/Factories/IngredientFactory";
+import NYIngredientFactory from "../Ingredients/Factories/NYIngredientFactory";
 import CheesePizza from "../Pizzas/CheesePizza";
 import ClamPizza from "../Pizzas/ClamPizza";
 import GreekPizza from "../Pizzas/GreekPizza";
@@ -5,34 +7,55 @@ import PepperoniPizza from "../Pizzas/PepperoniPizza";
 import Pizza from "../Pizzas/Pizza";
 import PlainPizza from "../Pizzas/PlainPizza";
 import VeggiePizza from "../Pizzas/VeggiePizza";
+import { PizzaTypes } from "../Types";
 import Store from "./Store";
-import { PizzaStyles, PizzaTypes } from "../Types";
 
 export default class NYStore extends Store {
-  private readonly style: PizzaStyles = PizzaStyles["New York"];
+  private ingredientFactory: IngredientFactory;
+
+  constructor() {
+    super();
+    this.ingredientFactory = new NYIngredientFactory();
+  }
 
   protected createPizza(type: PizzaTypes): Pizza {
+    let pizza: Pizza;
     switch (type) {
       case PizzaTypes.Cheese:
-        return new CheesePizza(this.style);
+        pizza = new CheesePizza(this.ingredientFactory);
+        pizza.setName("New York Style Cheese Pizza");
+        break;
       case PizzaTypes.Pepperoni:
-        return new PepperoniPizza(this.style);
+        pizza = new PepperoniPizza(this.ingredientFactory);
+        pizza.setName("New York Style Pepperoni Pizza");
+        break;
       case PizzaTypes.Greek:
-        return new GreekPizza(this.style);
+        pizza = new GreekPizza(this.ingredientFactory);
+        pizza.setName("New York Style Greek Pizza");
+        break;
       case PizzaTypes.Clam:
-        return new ClamPizza(this.style);
+        pizza = new ClamPizza(this.ingredientFactory);
+        pizza.setName("New York Style Clam Pizza");
+        break;
       case PizzaTypes.Veggie:
-        return new VeggiePizza(this.style);
+        pizza = new VeggiePizza(this.ingredientFactory);
+        pizza.setName("New York Style Veggie Pizza");
+        break;
       case PizzaTypes.Plain:
-        return new PlainPizza(this.style);
+        pizza = new PlainPizza(this.ingredientFactory);
+        pizza.setName("New York Style Plain Pizza");
+        break;
       default:
         console.log(
           `\nWoah... I don't know how to make a ${
             PizzaTypes[type]
           } pizza is yet, how about a ${PizzaTypes[PizzaTypes.Plain]}`
         );
+        pizza = new PlainPizza(this.ingredientFactory);
+        pizza.setName("New York Style Plain Pizza");
+        break;
     }
 
-    return new PlainPizza(this.style);
+    return pizza;
   }
 }

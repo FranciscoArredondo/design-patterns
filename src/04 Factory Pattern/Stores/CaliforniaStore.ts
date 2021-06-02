@@ -7,32 +7,55 @@ import PlainPizza from "../Pizzas/PlainPizza";
 import VeggiePizza from "../Pizzas/VeggiePizza";
 import Store from "./Store";
 import { PizzaStyles, PizzaTypes } from "../Types";
+import IngredientFactory from "../Ingredients/Factories/IngredientFactory";
+import CaliforniaIngredientFactory from "../Ingredients/Factories/CaliforniaIngredientFactory";
 
 export default class CliforniaStore extends Store {
-  private readonly style: PizzaStyles = PizzaStyles.California;
+  private ingredientFactory: IngredientFactory;
+
+  constructor() {
+    super();
+    this.ingredientFactory = new CaliforniaIngredientFactory();
+  }
 
   protected createPizza(type: PizzaTypes): Pizza {
+    let pizza: Pizza;
     switch (type) {
       case PizzaTypes.Cheese:
-        return new CheesePizza(this.style);
+        pizza = new CheesePizza(this.ingredientFactory);
+        pizza.setName("Cali-Style Cheese Pizza");
+        break;
       case PizzaTypes.Pepperoni:
-        return new PepperoniPizza(this.style);
+        pizza = new PepperoniPizza(this.ingredientFactory);
+        pizza.setName("Cali-Style Pepperoni Pizza");
+        break;
       case PizzaTypes.Greek:
-        return new GreekPizza(this.style);
+        pizza = new GreekPizza(this.ingredientFactory);
+        pizza.setName("Cali-Style Greek Pizza");
+        break;
       case PizzaTypes.Clam:
-        return new ClamPizza(this.style);
+        pizza = new ClamPizza(this.ingredientFactory);
+        pizza.setName("Cali-Style Clam Pizza");
+        break;
       case PizzaTypes.Veggie:
-        return new VeggiePizza(this.style);
+        pizza = new VeggiePizza(this.ingredientFactory);
+        pizza.setName("Cali-Style Veggie Pizza");
+        break;
       case PizzaTypes.Plain:
-        return new PlainPizza(this.style);
+        pizza = new PlainPizza(this.ingredientFactory);
+        pizza.setName("Cali-Style Plain Pizza");
+        break;
       default:
         console.log(
           `\nWoah... I don't know how to make a ${
             PizzaTypes[type]
           } pizza is yet, how about a ${PizzaTypes[PizzaTypes.Plain]}`
         );
+        pizza = new PlainPizza(this.ingredientFactory);
+        pizza.setName("Cali-Style Plain Pizza");
+        break;
     }
 
-    return new PlainPizza(this.style);
+    return pizza;
   }
 }
