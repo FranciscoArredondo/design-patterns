@@ -15,8 +15,7 @@ import Whip from "./03 Decorator Pattern/decorators/Whip";
 import { Sizes } from "./03 Decorator Pattern/Enums";
 import Espresso from "./03 Decorator Pattern/Espresso";
 import HouseBlend from "./03 Decorator Pattern/HouseBlend";
-import CheesePizza from "./04 Factory Pattern/Pizzas/CheesePizza";
-import Pizza from "./04 Factory Pattern/Pizzas/Pizza";
+import SimplePizzaFactory from "./04 Factory Pattern/SimplePizzaFactory";
 import Store from "./04 Factory Pattern/Store";
 import { PizzaTypes } from "./04 Factory Pattern/Types";
 
@@ -85,7 +84,8 @@ decafDrink.log();
 darkRoast.log();
 
 console.log("\n/******* Factory Pattern *******/");
-const pizzaStore = new Store("Frank's Pizza");
+const pizzaFactory = new SimplePizzaFactory();
+const pizzaStore = new Store(pizzaFactory);
 pizzaStore.orderPizza(PizzaTypes.Cheese);
 pizzaStore.orderPizza(PizzaTypes.Pepperoni);
 pizzaStore.orderPizza(PizzaTypes.Greek);
