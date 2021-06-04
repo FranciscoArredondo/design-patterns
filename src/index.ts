@@ -19,6 +19,7 @@ import CaliforniaStore from "./04 Factory Pattern/Stores/CaliforniaStore";
 import ChicagoStore from "./04 Factory Pattern/Stores/ChicagoStore";
 import NYStore from "./04 Factory Pattern/Stores/NYStore";
 import { PizzaTypes } from "./04 Factory Pattern/Types";
+import ChocolateBoiler from "./05 Singleton Pattern/ChocolateBoiler";
 
 console.log("/******* Strategy Pattern *******/");
 const md = new MallardDuck();
@@ -95,3 +96,13 @@ newYork.orderPizza(PizzaTypes.Pepperoni);
 const cali = new CaliforniaStore();
 cali.orderPizza(PizzaTypes.Clam);
 cali.orderPizza(PizzaTypes.Veggie);
+
+console.log("\n/******* Singleton Pattern *******/");
+const chocBoiler = ChocolateBoiler.getInstance();
+chocBoiler.log();
+chocBoiler.fill();
+chocBoiler.log();
+chocBoiler.boil();
+chocBoiler.log();
+chocBoiler.drain();
+chocBoiler.log();
