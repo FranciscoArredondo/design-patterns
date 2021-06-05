@@ -11,28 +11,28 @@ export default class GarageDoor {
   }
 
   up() {
-    console.log(`Garage door is going ${DoorState[this.state.doorState]}`);
     this.state.doorState = DoorState.Up;
+    console.log(`Garage door is going ${DoorState[this.state.doorState]}`);
   }
 
   down() {
-    console.log(`Garage door is going ${DoorState[this.state.doorState]}`);
     this.state.doorState = DoorState.Down;
+    console.log(`Garage door is going ${DoorState[this.state.doorState]}`);
   }
 
   stop() {
-    console.log(`Garage door is ${DoorState[this.state.doorState]}`);
     this.state.doorState = DoorState.Stopped;
+    console.log(`Garage door is ${DoorState[this.state.doorState]}`);
   }
 
   lightOn() {
-    console.log(`The Garage light is now ${LightState[this.state.lightState]}`);
     this.state.lightState = LightState.On;
+    console.log(`The Garage light is now ${LightState[this.state.lightState]}`);
   }
 
   lightOff() {
-    console.log(`The Garage light is now ${LightState[this.state.lightState]}`);
     this.state.lightState = LightState.Off;
+    console.log(`The Garage light is now ${LightState[this.state.lightState]}`);
   }
 
   getDoorState() {
