@@ -26,6 +26,10 @@ import SimpleRemote from "./06 Command Pattern/SimpleRemote";
 import LightOffCommand from "./06 Command Pattern/Commands/Light/LightOffCommand";
 import GarageDoor from "./06 Command Pattern/Vendors/GarageDoor";
 import GarageDoorUpCommand from "./06 Command Pattern/Commands/GarageDoor/GarageDoorUpCommand";
+import RemoteControl from "./06 Command Pattern/RemoteControl";
+import GarageDoorDownCommand from "./06 Command Pattern/Commands/GarageDoor/GarageDoorDownCommand";
+import GarageDoorLightOnCommand from "./06 Command Pattern/Commands/GarageDoor/GarageDoorLightOnCommand";
+import GarageDoorLightOffCommand from "./06 Command Pattern/Commands/GarageDoor/GarageDoorLightOffCommand";
 
 console.log("/******* Strategy Pattern *******/");
 const md = new MallardDuck();
@@ -114,9 +118,19 @@ chocBoiler.drain();
 chocBoiler.log();
 
 console.log("\n/******* Command Pattern *******/");
-const simpleRemote = new SimpleRemote();
+// Create our vendor objects here
 const light = new Light();
+const garageDoor = new GarageDoor();
+// Create commands here
 const lightOnCommand = new LightOnCommand(light);
+const lightOffCommand = new LightOffCommand(light);
+const garageDoorUpCommand = new GarageDoorUpCommand(garageDoor);
+const garageDoorDownCommand = new GarageDoorDownCommand(garageDoor);
+const garageDoorLightOnCommand = new GarageDoorLightOnCommand(garageDoor);
+const garageDoorLightOffCommand = new GarageDoorLightOffCommand(garageDoor);
+
+// Simple Remote Usage
+const simpleRemote = new SimpleRemote();
 
 // testing the light on command.
 simpleRemote.setCommand(lightOnCommand);
@@ -125,15 +139,25 @@ simpleRemote.buttonWasPressed();
 light.log();
 
 // testing the light off command.
-const lightOffCommand = new LightOffCommand(light);
 simpleRemote.setCommand(lightOffCommand);
 simpleRemote.buttonWasPressed();
 light.log();
 
 console.log(`\n~~~~~~~ Garage Door ~~~~~~~`);
-const garageDoor = new GarageDoor();
+
 garageDoor.log();
-const gDoorUp = new GarageDoorUpCommand(garageDoor);
-simpleRemote.setCommand(gDoorUp);
+simpleRemote.setCommand(garageDoorUpCommand);
 simpleRemote.buttonWasPressed();
 garageDoor.log();
+
+const remote = new RemoteControl();
+remote.setCommand(0, lightOnCommand, lightOffCommand);
+remote.setCommand(1, garageDoorLightOnCommand, garageDoorLightOffCommand);
+remote.setCommand(2, garageDoorUpCommand, garageDoorDownCommand);
+remote.log();
+remote.onButtonWasPushed(0);
+remote.onButtonWasPushed(1);
+remote.onButtonWasPushed(2);
+remote.offButtonWasPushed(0);
+remote.onButtonWasPushed(5);
+remote.onButtonWasPushed(50);
