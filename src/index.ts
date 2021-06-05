@@ -24,6 +24,8 @@ import Light from "./06 Command Pattern/Vendors/Light";
 import LightOnCommand from "./06 Command Pattern/Commands/Light/LightOnCommand";
 import SimpleRemote from "./06 Command Pattern/SimpleRemote";
 import LightOffCommand from "./06 Command Pattern/Commands/Light/LightOffCommand";
+import GarageDoor from "./06 Command Pattern/Vendors/GarageDoor";
+import GarageDoorUpCommand from "./06 Command Pattern/Commands/GarageDoor/GarageDoorUpCommand";
 
 console.log("/******* Strategy Pattern *******/");
 const md = new MallardDuck();
@@ -127,3 +129,11 @@ const lightOffCommand = new LightOffCommand(light);
 simpleRemote.setCommand(lightOffCommand);
 simpleRemote.buttonWasPressed();
 light.log();
+
+console.log(`\n~~~~~~~ Garage Door ~~~~~~~`);
+const garageDoor = new GarageDoor();
+garageDoor.log();
+const gDoorUp = new GarageDoorUpCommand(garageDoor);
+simpleRemote.setCommand(gDoorUp);
+simpleRemote.buttonWasPressed();
+garageDoor.log();
