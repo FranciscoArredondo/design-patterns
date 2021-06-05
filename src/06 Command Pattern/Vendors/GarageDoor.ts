@@ -42,4 +42,12 @@ export default class GarageDoor {
   getLightState() {
     return this.state.lightState;
   }
+
+  log(): void {
+    console.log(
+      `The garage door is ${DoorState[this.state.doorState]} with the lights ${
+        LightState[this.state.lightState]
+      }.`
+    );
+  }
 }
