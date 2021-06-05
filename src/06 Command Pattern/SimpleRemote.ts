@@ -7,6 +7,9 @@ export default class SimpleRemote {
 
   setCommand(command: Command) {
     this.slot = command;
+    console.log(
+      `Assigning '${this.slot.constructor.name}' to our remote control.`
+    );
   }
 
   buttonWasPressed(): void {
