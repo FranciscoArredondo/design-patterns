@@ -20,7 +20,7 @@ import ChicagoStore from "./04 Factory Pattern/Stores/ChicagoStore";
 import NYStore from "./04 Factory Pattern/Stores/NYStore";
 import { PizzaTypes } from "./04 Factory Pattern/Types";
 import ChocolateBoiler from "./05 Singleton Pattern/ChocolateBoiler";
-import Light from "./06 Command Pattern/Light";
+import Light from "./06 Command Pattern/Vendors/Light";
 import LightOnCommand from "./06 Command Pattern/Commands/Light/LightOnCommand";
 import SimpleRemote from "./06 Command Pattern/SimpleRemote";
 import LightOffCommand from "./06 Command Pattern/Commands/Light/LightOffCommand";

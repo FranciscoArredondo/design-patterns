@@ -1,4 +1,4 @@
-export enum State {
+export enum LightState {
   "On",
   "Off",
 }
@@ -11,5 +11,5 @@ export enum DoorState {
 
 export type GarageDoorState = {
   doorState: DoorState;
-  lightState: State;
+  lightState: LightState;
 };

@@ -1,25 +1,25 @@
-import { State } from "../Types";
+import { LightState } from "../Types";
 
 export default class Light {
-  private state: State;
+  private state: LightState;
 
   constructor() {
-    this.state = State.Off;
+    this.state = LightState.Off;
   }
 
   on(): void {
-    this.state = State.On;
+    this.state = LightState.On;
   }
 
   off(): void {
-    this.state = State.Off;
+    this.state = LightState.Off;
   }
 
-  getState(): State {
+  getState(): LightState {
     return this.state;
   }
 
   log(): void {
-    console.log(`This light is ${State[this.state]}`);
+    console.log(`This light is ${LightState[this.state]}`);
   }
 }

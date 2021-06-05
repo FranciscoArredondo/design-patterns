@@ -1,5 +1,5 @@
 import Command from "../../Command";
-import Light from "../../Light";
+import Light from "../../Vendors/Light";
 
 export default class LightOnCommand implements Command {
   private light: Light;

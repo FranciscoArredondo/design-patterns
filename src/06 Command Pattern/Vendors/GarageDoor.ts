@@ -1,4 +1,4 @@
-import { DoorState, GarageDoorState, State } from "../Types";
+import { DoorState, GarageDoorState, LightState } from "../Types";
 
 export default class GarageDoor {
   private state: GarageDoorState;
@@ -6,7 +6,7 @@ export default class GarageDoor {
   constructor() {
     this.state = {
       doorState: DoorState.Down,
-      lightState: State.On,
+      lightState: LightState.On,
     };
   }
 
@@ -23,11 +23,11 @@ export default class GarageDoor {
   }
 
   lightOn() {
-    this.state.lightState = State.On;
+    this.state.lightState = LightState.On;
   }
 
   lightOff() {
-    this.state.lightState = State.Off;
+    this.state.lightState = LightState.Off;
   }
 
   getDoorState() {
