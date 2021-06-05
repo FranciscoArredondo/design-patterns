@@ -1,4 +1,4 @@
-import { State } from "./Types";
+import { State } from "../Types";
 
 export default class Light {
   private state: State;
