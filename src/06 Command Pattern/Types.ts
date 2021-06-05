@@ -9,7 +9,22 @@ export enum DoorState {
   "Stopped",
 }
 
+export enum StereoPowerState {
+  "On",
+  "Off",
+}
+
+export enum StereoCdState {
+  "Occupied",
+  "Empty",
+}
+
 export type GarageDoorState = {
   doorState: DoorState;
   lightState: LightState;
+};
+
+export type StereoState = {
+  powerState: StereoPowerState;
+  cdState: StereoCdState;
 };
