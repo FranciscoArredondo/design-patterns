@@ -20,6 +20,10 @@ import ChicagoStore from "./04 Factory Pattern/Stores/ChicagoStore";
 import NYStore from "./04 Factory Pattern/Stores/NYStore";
 import { PizzaTypes } from "./04 Factory Pattern/Types";
 import ChocolateBoiler from "./05 Singleton Pattern/ChocolateBoiler";
+import Light from "./06 Command Pattern/Light";
+import LightOnCommand from "./06 Command Pattern/Commands/Light/LightOnCommand";
+import SimpleRemote from "./06 Command Pattern/SimpleRemote";
+import LightOffCommand from "./06 Command Pattern/Commands/Light/LightOffCommand";
 
 console.log("/******* Strategy Pattern *******/");
 const md = new MallardDuck();
@@ -106,3 +110,20 @@ chocBoiler.boil();
 chocBoiler.log();
 chocBoiler.drain();
 chocBoiler.log();
+
+console.log("\n/******* Command Pattern *******/");
+const simpleRemote = new SimpleRemote();
+const light = new Light();
+const lightOnCommand = new LightOnCommand(light);
+
+// testing the light on command.
+simpleRemote.setCommand(lightOnCommand);
+light.log();
+simpleRemote.buttonWasPressed();
+light.log();
+
+// testing the light off command.
+const lightOffCommand = new LightOffCommand(light);
+simpleRemote.setCommand(lightOffCommand);
+simpleRemote.buttonWasPressed();
+light.log();
