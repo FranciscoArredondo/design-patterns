@@ -9,10 +9,12 @@ export default class Light {
 
   on(): void {
     this.state = LightState.On;
+    console.log(`Light is now ${LightState[this.state]}\n`);
   }
 
   off(): void {
     this.state = LightState.Off;
+    console.log(`Light is now ${LightState[this.state]}\n`);
   }
 
   getState(): LightState {
