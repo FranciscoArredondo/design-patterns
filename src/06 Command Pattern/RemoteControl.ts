@@ -4,10 +4,12 @@ import NoCommand from "./Commands/NoCommand";
 export default class RemoteControl {
   private onCommands: Array<Command>;
   private offCommands: Array<Command>;
+  private undoCommand: Command;
 
   constructor() {
     this.onCommands = new Array(8).fill(new NoCommand());
     this.offCommands = new Array(8).fill(new NoCommand());
+    this.undoCommand = new NoCommand();
   }
 
   setCommand(slot: number, onCommand: Command, offCommand: Command): void {
@@ -19,6 +21,7 @@ export default class RemoteControl {
     if (slot >= 0 && slot < this.onCommands.length) {
       console.log(`\nSlot #${slot} was pressed!`);
       this.onCommands[slot].execute();
+      this.undoCommand = this.onCommands[slot];
     }
   }
 
@@ -26,7 +29,13 @@ export default class RemoteControl {
     if (slot >= 0 && slot < this.offCommands.length) {
       console.log(`\nSlot #${slot} was pressed!`);
       this.offCommands[slot].execute();
+      this.undoCommand = this.offCommands[slot];
     }
+  }
+
+  undoButtonWasPushed(): void {
+    console.log(`\nUndoing the last command!`);
+    this.undoCommand.undo();
   }
 
   log(): void {
