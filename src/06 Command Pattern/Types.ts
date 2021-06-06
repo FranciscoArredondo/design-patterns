@@ -27,4 +27,5 @@ export type GarageDoorState = {
 export type StereoState = {
   powerState: StereoPowerState;
   cdState: StereoCdState;
+  volumeLevel: number;
 };
