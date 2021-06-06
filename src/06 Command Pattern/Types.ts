@@ -19,6 +19,13 @@ export enum StereoCdState {
   "Empty",
 }
 
+export enum FanSpeed {
+  "Off",
+  "Low",
+  "Medium",
+  "High",
+}
+
 export type GarageDoorState = {
   doorState: DoorState;
   lightState: LightState;
@@ -28,4 +35,9 @@ export type StereoState = {
   powerState: StereoPowerState;
   cdState: StereoCdState;
   volumeLevel: number;
+};
+
+export type CeilingFanState = {
+  speed: FanSpeed;
+  prevSpeed: FanSpeed;
 };
