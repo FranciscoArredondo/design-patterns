@@ -38,6 +38,8 @@ import CelingFanOffCommand from "./06 Command Pattern/Commands/CeilingFan/Ceilin
 import CelingFanLowCommand from "./06 Command Pattern/Commands/CeilingFan/CeilingFanLowCommand";
 import CelingFanMediumCommand from "./06 Command Pattern/Commands/CeilingFan/CeilingFanMediumCommand";
 import CelingFanHighCommand from "./06 Command Pattern/Commands/CeilingFan/CelingFanHighCommand";
+import MacroCommand from "./06 Command Pattern/Commands/MacroCommand";
+import NoCommand from "./06 Command Pattern/Commands/NoCommand";
 
 console.log("/******* Strategy Pattern *******/");
 const md = new MallardDuck();
@@ -183,4 +185,11 @@ remote.onButtonWasPushed(3);
 remote.offButtonWasPushed(3);
 remote.undoButtonWasPushed();
 remote.onButtonWasPushed(4);
+remote.undoButtonWasPushed();
+
+// Test the macro command
+let commandsArray = [lightOnCommand, stereoOnWithCd, ceilingFanMedium];
+const macroCommand = new MacroCommand(commandsArray);
+remote.setCommand(7, macroCommand, new NoCommand());
+remote.onButtonWasPushed(7);
 remote.undoButtonWasPushed();
