@@ -12,4 +12,10 @@ export default class StereoOnWithCd implements Command {
     this.stereo.setVolume(5);
     this.stereo.setCd();
   }
+
+  undo(): void {
+    this.stereo.ejectCd();
+    this.stereo.setVolume(0);
+    this.stereo.off();
+  }
 }

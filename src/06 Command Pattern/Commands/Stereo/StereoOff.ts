@@ -12,4 +12,9 @@ export default class StereoOff implements Command {
     this.stereo.setVolume(0);
     this.stereo.off();
   }
+
+  undo(): void {
+    this.stereo.on();
+    this.stereo.setVolume(5);
+  }
 }

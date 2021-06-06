@@ -11,4 +11,8 @@ export default class GarageDoorLightOffCommand implements Command {
   execute(): void {
     this.garageDoor.lightOff();
   }
+
+  undo(): void {
+    this.garageDoor.lightOn();
+  }
 }

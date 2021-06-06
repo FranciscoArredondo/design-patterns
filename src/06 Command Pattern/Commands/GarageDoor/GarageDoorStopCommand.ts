@@ -11,4 +11,8 @@ export default class GarageDoorStopCommand implements Command {
   execute(): void {
     this.garageDoor.stop();
   }
+
+  undo(): void {
+    this.garageDoor.down();
+  }
 }
