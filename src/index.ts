@@ -40,6 +40,7 @@ import CelingFanMediumCommand from "./06 Command Pattern/Commands/CeilingFan/Cei
 import CelingFanHighCommand from "./06 Command Pattern/Commands/CeilingFan/CelingFanHighCommand";
 import MacroCommand from "./06 Command Pattern/Commands/MacroCommand";
 import NoCommand from "./06 Command Pattern/Commands/NoCommand";
+import DuckTestDrive from "./07 Adapter Pattern/Duck Example/DuckTestDrive";
 
 console.log("/******* Strategy Pattern *******/");
 const md = new MallardDuck();
@@ -193,3 +194,6 @@ const macroCommand = new MacroCommand(commandsArray);
 remote.setCommand(7, macroCommand, new NoCommand());
 remote.onButtonWasPushed(7);
 remote.undoButtonWasPushed();
+
+console.log("\n/******* Adapter Pattern *******/");
+DuckTestDrive.main();
