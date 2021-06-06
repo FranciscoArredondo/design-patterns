@@ -29,6 +29,7 @@ export default class CelingFanOffCommand implements Command {
         break;
       case FanSpeed.Off:
         this.ceilingFan.off();
+        break;
       default:
         this.ceilingFan.off();
         break;
