@@ -41,7 +41,7 @@ export default class RemoteControl {
       slot >= 0 &&
       slot < this.offCommands.length
     ) {
-      console.log(`Slot #${slot} Off Button was pressed!`);
+      console.log(`\nSlot #${slot} Off Button was pressed!`);
       this.offCommands[slot].execute();
     } else {
       if (slot > this.offCommands.length || slot < 0) {
