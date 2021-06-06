@@ -30,6 +30,9 @@ import RemoteControl from "./06 Command Pattern/RemoteControl";
 import GarageDoorDownCommand from "./06 Command Pattern/Commands/GarageDoor/GarageDoorDownCommand";
 import GarageDoorLightOnCommand from "./06 Command Pattern/Commands/GarageDoor/GarageDoorLightOnCommand";
 import GarageDoorLightOffCommand from "./06 Command Pattern/Commands/GarageDoor/GarageDoorLightOffCommand";
+import Stereo from "./06 Command Pattern/Vendors/Stereo";
+import StereoOnWithCd from "./06 Command Pattern/Commands/Stereo/StereoOnWithCd";
+import StereoOff from "./06 Command Pattern/Commands/Stereo/StereoOff";
 
 console.log("/******* Strategy Pattern *******/");
 const md = new MallardDuck();
@@ -121,6 +124,7 @@ console.log("\n/******* Command Pattern *******/");
 // Create our vendor objects here
 const light = new Light();
 const garageDoor = new GarageDoor();
+const stereo = new Stereo();
 // Create commands here
 const lightOnCommand = new LightOnCommand(light);
 const lightOffCommand = new LightOffCommand(light);
@@ -128,6 +132,8 @@ const garageDoorUpCommand = new GarageDoorUpCommand(garageDoor);
 const garageDoorDownCommand = new GarageDoorDownCommand(garageDoor);
 const garageDoorLightOnCommand = new GarageDoorLightOnCommand(garageDoor);
 const garageDoorLightOffCommand = new GarageDoorLightOffCommand(garageDoor);
+const stereoOnWithCd = new StereoOnWithCd(stereo);
+const stereoOff = new StereoOff(stereo);
 
 // Simple Remote Usage
 const simpleRemote = new SimpleRemote();
@@ -154,6 +160,7 @@ const remote = new RemoteControl();
 remote.setCommand(0, lightOnCommand, lightOffCommand);
 remote.setCommand(1, garageDoorLightOnCommand, garageDoorLightOffCommand);
 remote.setCommand(2, garageDoorUpCommand, garageDoorDownCommand);
+remote.setCommand(3, stereoOnWithCd, stereoOff);
 remote.log();
 remote.onButtonWasPushed(0);
 remote.onButtonWasPushed(1);
@@ -161,3 +168,5 @@ remote.onButtonWasPushed(2);
 remote.offButtonWasPushed(0);
 remote.onButtonWasPushed(5);
 remote.onButtonWasPushed(50);
+remote.onButtonWasPushed(3);
+remote.offButtonWasPushed(3);
