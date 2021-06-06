@@ -170,3 +170,4 @@ remote.onButtonWasPushed(5);
 remote.onButtonWasPushed(50);
 remote.onButtonWasPushed(3);
 remote.offButtonWasPushed(3);
+remote.undoButtonWasPushed();
