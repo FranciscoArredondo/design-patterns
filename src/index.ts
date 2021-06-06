@@ -33,6 +33,11 @@ import GarageDoorLightOffCommand from "./06 Command Pattern/Commands/GarageDoor/
 import Stereo from "./06 Command Pattern/Vendors/Stereo";
 import StereoOnWithCd from "./06 Command Pattern/Commands/Stereo/StereoOnWithCd";
 import StereoOff from "./06 Command Pattern/Commands/Stereo/StereoOff";
+import CeilingFan from "./06 Command Pattern/Vendors/CeilingFan";
+import CelingFanOffCommand from "./06 Command Pattern/Commands/CeilingFan/CeilingFanOffCommand";
+import CelingFanLowCommand from "./06 Command Pattern/Commands/CeilingFan/CeilingFanLowCommand";
+import CelingFanMediumCommand from "./06 Command Pattern/Commands/CeilingFan/CeilingFanMediumCommand";
+import CelingFanHighCommand from "./06 Command Pattern/Commands/CeilingFan/CelingFanHighCommand";
 
 console.log("/******* Strategy Pattern *******/");
 const md = new MallardDuck();
@@ -125,6 +130,7 @@ console.log("\n/******* Command Pattern *******/");
 const light = new Light();
 const garageDoor = new GarageDoor();
 const stereo = new Stereo();
+const ceilingFan = new CeilingFan();
 // Create commands here
 const lightOnCommand = new LightOnCommand(light);
 const lightOffCommand = new LightOffCommand(light);
@@ -134,6 +140,10 @@ const garageDoorLightOnCommand = new GarageDoorLightOnCommand(garageDoor);
 const garageDoorLightOffCommand = new GarageDoorLightOffCommand(garageDoor);
 const stereoOnWithCd = new StereoOnWithCd(stereo);
 const stereoOff = new StereoOff(stereo);
+const ceilingFanOff = new CelingFanOffCommand(ceilingFan);
+const ceilingFanLow = new CelingFanLowCommand(ceilingFan);
+const ceilingFanMedium = new CelingFanMediumCommand(ceilingFan);
+const ceilingFanHigh = new CelingFanHighCommand(ceilingFan);
 
 // Simple Remote Usage
 const simpleRemote = new SimpleRemote();
@@ -161,6 +171,7 @@ remote.setCommand(0, lightOnCommand, lightOffCommand);
 remote.setCommand(1, garageDoorLightOnCommand, garageDoorLightOffCommand);
 remote.setCommand(2, garageDoorUpCommand, garageDoorDownCommand);
 remote.setCommand(3, stereoOnWithCd, stereoOff);
+remote.setCommand(4, ceilingFanHigh, ceilingFanOff);
 remote.log();
 remote.onButtonWasPushed(0);
 remote.onButtonWasPushed(1);
@@ -170,4 +181,6 @@ remote.onButtonWasPushed(5);
 remote.onButtonWasPushed(50);
 remote.onButtonWasPushed(3);
 remote.offButtonWasPushed(3);
+remote.undoButtonWasPushed();
+remote.onButtonWasPushed(4);
 remote.undoButtonWasPushed();
