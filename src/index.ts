@@ -41,6 +41,7 @@ import CelingFanHighCommand from "./06 Command Pattern/Commands/CeilingFan/Celin
 import MacroCommand from "./06 Command Pattern/Commands/MacroCommand";
 import NoCommand from "./06 Command Pattern/Commands/NoCommand";
 import DuckTestDrive from "./07 Adapter Pattern/Duck Example/DuckTestDrive";
+import HomeTheaterTestDrive from "./07 Adapter Pattern/Home Theater Example/HomeTheaterTestDrive";
 
 console.log("/******* Strategy Pattern *******/");
 const md = new MallardDuck();
@@ -197,3 +198,4 @@ remote.undoButtonWasPushed();
 
 console.log("\n/******* Adapter Pattern *******/");
 DuckTestDrive.main();
+HomeTheaterTestDrive.main();
