@@ -1,6 +1,7 @@
 import Amplifier from "./Amplifier";
 import CdPlayer from "./CdPlayer";
 import DvdPlayer from "./DvdPlayer";
+import HomeTheaterFacade from "./HomeTheaterFacade";
 import PopcornPopper from "./PopcornPopper";
 import Projector from "./Projector";
 import Screen from "./Screen";
@@ -36,5 +37,22 @@ export default class HomeTheaterTestDrive {
 
     dvdPlayer.on();
     dvdPlayer.play();
+
+    console.log(
+      `\n~~~~~~~Test driving the home theater system (Facade Pattern)~~~~~~~`
+    );
+    const homeTheater: HomeTheaterFacade = new HomeTheaterFacade(
+      popper,
+      lights,
+      screen,
+      amp,
+      dvdPlayer,
+      cdPlayer,
+      projector
+    );
+    homeTheater.watchMovie();
+    console.log(`\nEnjoying the movie...`);
+    console.log(`\Done with the movie...time to get back to work!`);
+    homeTheater.endMovie();
   }
 }
