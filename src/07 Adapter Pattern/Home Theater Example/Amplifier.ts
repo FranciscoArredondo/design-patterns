@@ -3,15 +3,9 @@ import DvdPlayer from "./DvdPlayer";
 import Tuner from "./Tuner";
 
 export default class Amplifier {
-  private tuner: Tuner;
-  private cdPlayer: CdPlayer;
-  private dvdPlayer: DvdPlayer;
-
-  constructor(tuner: Tuner, cdPlayer: CdPlayer, dvdPlayer: DvdPlayer) {
-    this.tuner = tuner;
-    this.cdPlayer = cdPlayer;
-    this.dvdPlayer = dvdPlayer;
-  }
+  private tuner: Tuner | undefined;
+  private cdPlayer: CdPlayer | undefined;
+  private dvdPlayer: DvdPlayer | undefined;
 
   on(): void {
     console.log(`The amplifier is now on!`);
@@ -21,12 +15,12 @@ export default class Amplifier {
     console.log(`The amplifier is now off!`);
   }
 
-  setCd(): void {
-    console.log(`Inserting a CD...`);
+  setCd(cdPlayer: CdPlayer): void {
+    this.cdPlayer = cdPlayer;
   }
 
-  setDvd(): void {
-    console.log(`Inserting a DVD...`);
+  setDvd(dvdPlayer: DvdPlayer): void {
+    this.dvdPlayer = dvdPlayer;
   }
 
   setStereo(): void {
@@ -37,8 +31,8 @@ export default class Amplifier {
     console.log(`The surround sound has been set!`);
   }
 
-  setTuner(): void {
-    console.log(`The tuner has been set!`);
+  setTuner(tuner: Tuner): void {
+    this.tuner = tuner;
   }
 
   setVolume(): void {
