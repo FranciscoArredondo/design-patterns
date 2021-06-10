@@ -1,4 +1,6 @@
-export default class Coffee {
+import CaffineBeverage from "./CaffineBeverage";
+
+export default class Coffee extends CaffineBeverage {
   prepareRecipe() {
     this.boilWater();
     this.brewCoffeeGrinds();
@@ -6,16 +8,8 @@ export default class Coffee {
     this.addSugarAndMilk();
   }
 
-  boilWater(): void {
-    console.log(`Boiling water`);
-  }
-
   brewCoffeeGrinds(): void {
     console.log(`Dripping Coffee through filter`);
-  }
-
-  pourInCup(): void {
-    console.log(`Pouring into cup`);
   }
 
   addSugarAndMilk(): void {

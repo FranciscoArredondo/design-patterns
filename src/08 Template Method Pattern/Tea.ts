@@ -1,4 +1,6 @@
-export default class Tea {
+import CaffineBeverage from "./CaffineBeverage";
+
+export default class Tea extends CaffineBeverage {
   prepareRecipe() {
     this.boilWater();
     this.steepTeaBag();
@@ -6,16 +8,8 @@ export default class Tea {
     this.addLemon();
   }
 
-  boilWater(): void {
-    console.log(`Boiling water`);
-  }
-
   steepTeaBag(): void {
     console.log(`Steeping the tea`);
-  }
-
-  pourInCup(): void {
-    console.log(`Pouring into cup`);
   }
 
   addLemon(): void {
