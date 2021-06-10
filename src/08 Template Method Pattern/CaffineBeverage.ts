@@ -1,10 +1,19 @@
 export default abstract class CaffineBeverage {
-  abstract prepareRecipe(): void;
+  prepareRecipe() {
+    this.boilWater();
+    this.brew();
+    this.pourInCup();
+    this.addCondiments();
+  }
 
   boilWater(): void {
     console.log(`Boiling water`);
   }
+
   pourInCup(): void {
     console.log(`Pouring into cup`);
   }
+
+  abstract brew(): void;
+  abstract addCondiments(): void;
 }
