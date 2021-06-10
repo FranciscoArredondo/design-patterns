@@ -202,4 +202,6 @@ DuckTestDrive.main();
 HomeTheaterTestDrive.main();
 
 console.log("\n/******* Template Method Pattern *******/");
-Starbuzz.main();
+(async function () {
+  await Starbuzz.main();
+})();
