@@ -43,6 +43,7 @@ import NoCommand from "./06 Command Pattern/Commands/NoCommand";
 import DuckTestDrive from "./07 Adapter Pattern/Duck Example/DuckTestDrive";
 import HomeTheaterTestDrive from "./07 Adapter Pattern/Home Theater Example/HomeTheaterTestDrive";
 import Starbuzz from "./08 Template Method Pattern/Starbuzz";
+import DinnerTestDrive from "./09 Iterator & Composite Pattern/DinnerTestDrive";
 
 console.log("/******* Strategy Pattern *******/");
 const md = new MallardDuck();
@@ -202,6 +203,9 @@ DuckTestDrive.main();
 HomeTheaterTestDrive.main();
 
 console.log("\n/******* Template Method Pattern *******/");
-(async function () {
-  await Starbuzz.main();
-})();
+// (async function () {
+//   await Starbuzz.main();
+// })();
+
+console.log("\n/******* Iterator & Composite Pattern *******/");
+DinnerTestDrive.main();
